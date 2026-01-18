@@ -2,13 +2,16 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config();
 
 import connectDB from "./config/mongodb.js";
 
 import supplierRoutes from "./routes/supplierRoutes.js";
 import shipmentRoutes from "./routes/shipmentRoutes.js";
 import riskAnalysisRoutes from "./routes/riskAnalysisRoutes.js";
+import heatMapRoutes from "./routes/heatMapRoutes.js";
+
 
 import errorHandler from "./middlewares/errorHandler.js";
 
@@ -17,7 +20,7 @@ const app = express();
 
 // ✅ Allowed frontend origins (Vite / future deploys)
 const allowedOrigins = [
-  "http://localhost:5173",
+  'http://localhost:5173',
   // add deployed frontend URL later
 ];
 
@@ -44,6 +47,8 @@ connectDB();
 app.use("/api/v1/suppliers", supplierRoutes);
 app.use("/api/v1/shipments", shipmentRoutes);
 app.use("/api/v1/risk-analyses", riskAnalysisRoutes);
+app.use("/api/v1/heatmap", heatMapRoutes);
+
 
 // ✅ Health check
 app.get("/", (req, res) => {

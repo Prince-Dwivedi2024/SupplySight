@@ -4,31 +4,6 @@ import RiskTable from "../components/RiskTable";
 import RiskMap from "../components/RiskMap";
 
 export default function Dashboard() {
-  // Temporary mock data (replace with API later)
-  const mockShipments = [
-    {
-      supplier: "Tata Steel",
-      origin: "India",
-      destination: "Germany",
-      riskLevel: "High",
-      riskScore: 78,
-    },
-    {
-      supplier: "Bosch",
-      origin: "Germany",
-      destination: "USA",
-      riskLevel: "Medium",
-      riskScore: 54,
-    },
-    {
-      supplier: "Foxconn",
-      origin: "China",
-      destination: "India",
-      riskLevel: "Low",
-      riskScore: 23,
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-slate-100 p-6">
       {/* Header */}
@@ -50,7 +25,7 @@ export default function Dashboard() {
 
       {/* Bottom Section */}
       <section>
-        <RiskTable shipments={mockShipments} />
+        <RiskTable />
       </section>
     </div>
   );
